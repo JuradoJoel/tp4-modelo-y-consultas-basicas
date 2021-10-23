@@ -4,8 +4,7 @@ const {Op} = require('sequelize')
 module.exports = {
     list : (req,res) =>{
         db.Movie.findAll()
-        .then(movies => {
-            /* res.send(movies) */
+        .then(movies => {            
             return res.render('moviesList',{
                 movies
             })
@@ -14,8 +13,7 @@ module.exports = {
     },
     detail : (req,res) => {
         db.Movie.findByPk(req.params.id)
-            .then(movie=> {
-                /* res.send(movie) */
+            .then(movie=> {                
                 return res.render('moviesDetail',{
                     movie
                 })
@@ -30,7 +28,6 @@ module.exports = {
             limit : 5
         })
             .then(movies => {
-                /* res.send(movies) */
                 return res.render('newestMovies',{
                     movies
                 })
@@ -52,8 +49,7 @@ module.exports = {
                 ['rating', 'DESC']
             ]
         })
-        .then(movies =>{
-            /* res.render(movies) */
+        .then(movies =>{            
             return res.render('recommendedMovies',{
                 movies
             })

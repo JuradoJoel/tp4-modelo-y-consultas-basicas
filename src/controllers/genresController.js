@@ -4,7 +4,6 @@ module.exports = {
     list : (req,res) =>{
         db.Genre.findAll()
             .then(genres => {
-            /* res.send(movies) */
                 return res.render('genresList',{
                     genres
             })
@@ -13,10 +12,9 @@ module.exports = {
     },
     detail : (req,res) => {
         db.Genre.findByPk(req.params.id)
-            .then(genres=> {
-                /* res.send(movie) */
+            .then(genre=> {
                 return res.render('genresDetail',{
-                    genres
+                    genre
                 })
             })
             .catch(error => console.log(error))
